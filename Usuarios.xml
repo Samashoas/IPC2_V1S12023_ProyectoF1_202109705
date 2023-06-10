@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+<usuarios>
+  <usuario>
+    <rol>cliente</rol>
+    <nombre>yo</nombre>
+    <apellido>Doe</apellido>
+    <telefono>123456789</telefono>
+    <correo>john.doe@example.com</correo>
+    <contrasena>123</contrasena>
+  </usuario>
+  <usuario>
+    <rol>admin</rol>
+    <nombre>Jane</nombre>
+    <apellido>Smith</apellido>
+    <telefono>987654321</telefono>
+    <correo>jane.smith@example.com</correo>
+    <contrasena>password456</contrasena>
+  </usuario>
+  <usuario>
+    <rol>cliente</rol>
+    <nombre>juan</nombre>
+    <apellido>samayoa</apellido>
+    <telefono>123456</telefono>
+    <correo>aslkdjalsd@gmail.com</correo>
+    <contrasena>45645654</contrasena>
+  </usuario>
+  <usuario>
+    <rol>cliente</rol>
+    <nombre>asdasd</nombre>
+    <apellido>asd</apellido>
+    <telefono>2122132</telefono>
+    <correo>asdasdas</correo>
+    <contrasena>4564654</contrasena>
+  </usuario>
+</usuarios>
