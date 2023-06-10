@@ -67,8 +67,24 @@ def register_user(users):
             print('opción invalida')
 
 def ListadoPelis(filmes):
-    print('listado de peliculas')
-    filmes.display()
+    print(Fore.MAGENTA +'listado de peliculas')
+    for row in filmes:
+        print(row)
+    
+    print(Fore.RED +'¿desea regresar al menu principal?')
+    print('*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-')
+    print('|                   1. Si                          *')
+    print('|                   2. No                          *')
+    print('*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-')
+    while True:
+        option = int(input(Fore.GREEN +'seleccione una opción: '))
+        if option == 1:
+            inicio()
+            break
+        elif option == 2:
+            print('Esperando a que el usuario termine de ver las peliculas')
+        else:
+            print('opcion invalida')
 
 def menuAdmin():
     print(Fore.RED +'*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-')

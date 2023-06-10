@@ -42,6 +42,8 @@ def parse_xml(file_path):
     tree = ET.parse(file_path)
     root = tree.getroot()
 
+    data_row = []
+
     peli = DoublyCircularLinkedList()
 
     for categoria in root.findall('categoria'):
@@ -52,7 +54,8 @@ def parse_xml(file_path):
         for pelicula in peliculas.findall('pelicula'):
             titulo = pelicula.find('titulo').text
             director = pelicula.find('director').text
-            pelicula_data = f"Titulo: {titulo}\nDirector: {director}"
+            pelicula_data = f"Titulo: {titulo}, Director: {director}"
             peli.insert(pelicula_data)
+            data_row.append(pelicula_data)
 
-    return peli
+    return data_row
