@@ -1,7 +1,9 @@
 from colorama import*
 from ListaSE import*
+from ListaDE import*
 
 users = load_users_from_xml('Usuarios.xml')
+filmes = parse_xml('Pelis.xml')
 
 def sesion():
 
@@ -64,8 +66,9 @@ def register_user(users):
         else:
             print('opción invalida')
 
-def ListadoPelis():
-    print('Trabajando en ello')
+def ListadoPelis(filmes):
+    print('listado de peliculas')
+    filmes.display()
 
 def menuAdmin():
     print(Fore.RED +'*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-')
@@ -141,7 +144,7 @@ def inicio():
             register_user(users)
             break
         elif option == 3:
-            ListadoPelis()
+            ListadoPelis(filmes)
             break
         elif option == 4:
             exit()
