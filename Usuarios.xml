@@ -18,18 +18,18 @@
   </usuario>
   <usuario>
     <rol>cliente</rol>
-    <nombre>juan</nombre>
-    <apellido>samayoa</apellido>
-    <telefono>123456</telefono>
-    <correo>aslkdjalsd@gmail.com</correo>
-    <contrasena>45645654</contrasena>
+    <nombre>asdas</nombre>
+    <apellido>asdasd</apellido>
+    <telefono>123</telefono>
+    <correo>asdasdasd</correo>
+    <contrasena>123</contrasena>
   </usuario>
   <usuario>
     <rol>cliente</rol>
-    <nombre>asdasd</nombre>
-    <apellido>asd</apellido>
-    <telefono>2122132</telefono>
+    <nombre>asdas</nombre>
+    <apellido>asdasd</apellido>
+    <telefono>789879</telefono>
     <correo>asdasdas</correo>
-    <contrasena>4564654</contrasena>
+    <contrasena>123</contrasena>
   </usuario>
 </usuarios>

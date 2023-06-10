@@ -24,6 +24,12 @@ class LinkedList:
                 current = current.next
             current.next = user
 
+    def __iter__(self):
+        current = self.head
+        while current:
+            yield current
+            current = current.next
+
     def find_user(self, username, password):
         current = self.head
         while current:

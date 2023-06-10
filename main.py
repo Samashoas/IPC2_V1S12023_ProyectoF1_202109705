@@ -25,7 +25,17 @@ def register_user(users):
     apellido = input('Apellido: ')
     telefono = input('Numero de telefono: ')
     correo = input('Corrreo electronico: ')
-    contrasena = input('contraseña: ')
+
+    while True:
+        contrasena = input('contraseña: ')
+        passused = False
+        for user in users:
+            if user.contrasena == contrasena:
+                passused = True
+                print('contraseña en uso, ingrese otra')
+                break
+        if not passused:
+            break
 
     users.register_user(nombre, apellido, telefono, correo, contrasena)
     print(Fore.GREEN +"Usuario registrado!!")
