@@ -67,7 +67,7 @@ def register_user(users):
             print('opción invalida')
 
 def ListadoPelis(filmes):
-    print(Fore.MAGENTA +'listado de peliculas')
+    print(Fore.CYAN +'listado de peliculas')
     for row in filmes:
         print(row)
     

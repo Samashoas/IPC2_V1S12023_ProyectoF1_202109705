@@ -25,18 +25,6 @@ class DoublyCircularLinkedList:
             new_node.next = self.head
             self.head.prev = new_node
 
-    def display(self):
-        if self.head is None:
-            print("Linked list is empty")
-        else:
-            current = self.head
-            while True:
-                print(current.data)
-                current = current.next
-                if current == self.head:
-                    break
-            print()
-
 # Parse the XML file and populate the doubly circular linked list
 def parse_xml(file_path):
     tree = ET.parse(file_path)
@@ -54,7 +42,10 @@ def parse_xml(file_path):
         for pelicula in peliculas.findall('pelicula'):
             titulo = pelicula.find('titulo').text
             director = pelicula.find('director').text
-            pelicula_data = f"Titulo: {titulo}, Director: {director}"
+            anio = pelicula.find('anio').text
+            fecha = pelicula.find('fecha').text
+            hora = pelicula.find('hora').text
+            pelicula_data = f"Titulo: {titulo}, Director: {director}, Año: {anio}, Fecha: {fecha}, Hora: {hora}"
             peli.insert(pelicula_data)
             data_row.append(pelicula_data)
 
