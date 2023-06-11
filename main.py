@@ -130,7 +130,8 @@ def menuCliente():
     while True:
         option = int(input(Fore.GREEN +'Seleccione una opción: '))
         if option == 1:
-            print('Listado de Peliculas')
+            ListadoPelis(filmes)
+            break
         elif option == 2:
             print('Peliculas favoritas')
         elif option == 3:

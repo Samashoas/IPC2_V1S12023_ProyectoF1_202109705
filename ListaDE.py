@@ -31,12 +31,12 @@ def parse_xml(file_path):
     root = tree.getroot()
 
     data_row = []
+    index = 1
 
     peli = DoublyCircularLinkedList()
 
     for categoria in root.findall('categoria'):
         nombre = categoria.find('nombre').text
-        peli.insert(nombre)
 
         peliculas = categoria.find('peliculas')
         for pelicula in peliculas.findall('pelicula'):
@@ -45,8 +45,9 @@ def parse_xml(file_path):
             anio = pelicula.find('anio').text
             fecha = pelicula.find('fecha').text
             hora = pelicula.find('hora').text
-            pelicula_data = f"Titulo: {titulo}, Director: {director}, Año: {anio}, Fecha: {fecha}, Hora: {hora}"
+            pelicula_data = f"[{index}].Nombre: {nombre}, Titulo: {titulo}, Director: {director}, Año: {anio}, Fecha: {fecha}, Hora: {hora}"
             peli.insert(pelicula_data)
             data_row.append(pelicula_data)
+            index += 1
 
     return data_row
