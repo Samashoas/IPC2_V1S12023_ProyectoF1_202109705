@@ -66,25 +66,32 @@ def register_user(users):
         else:
             print('opción invalida')
 
-def ListadoPelis(filmes):
+def ListadoPelis(filmes, role):
     print(Fore.CYAN +'listado de peliculas')
     for row in filmes:
         print(row)
     
-    print(Fore.RED +'¿desea regresar al menu principal?')
-    print('*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-')
-    print('|                   1. Si                          *')
-    print('|                   2. No                          *')
-    print('*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-')
-    while True:
-        option = int(input(Fore.GREEN +'seleccione una opción: '))
-        if option == 1:
-            inicio()
-            break
-        elif option == 2:
-            print('Esperando a que el usuario termine de ver las peliculas')
-        else:
-            print('opcion invalida')
+    if role == 'Cliente':
+        print(Fore.RED +'¿desea regresar al menu principal?')
+        print('*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-')
+        print('|                  Cliente                         *')
+        print('|                   1. Si                          *')
+        print('|                   2. No                          *')
+        print('*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-')
+        while True:
+            option = int(input(Fore.GREEN +'seleccione una opción: '))
+            if option == 1:
+                menuCliente()
+                break
+            elif option == 2:
+                print('Esperando a que el usuario termine de ver las peliculas')
+            else:
+                print('opcion invalida')
+        pass
+    else:
+        print('no role for you :c')
+        inicio()
+        pass
 
 def menuAdmin():
     print(Fore.RED +'*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-')
@@ -130,7 +137,7 @@ def menuCliente():
     while True:
         option = int(input(Fore.GREEN +'Seleccione una opción: '))
         if option == 1:
-            ListadoPelis(filmes)
+            ListadoPelis(filmes, 'Cliente')
             break
         elif option == 2:
             print('Peliculas favoritas')
@@ -161,7 +168,7 @@ def inicio():
             register_user(users)
             break
         elif option == 3:
-            ListadoPelis(filmes)
+            ListadoPelis(filmes, 'invitado')
             break
         elif option == 4:
             exit()
