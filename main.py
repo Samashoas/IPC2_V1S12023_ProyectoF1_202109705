@@ -1,6 +1,7 @@
 from colorama import*
 from ListaSE import*
 from ListaDE import*
+from ListaDES import*
 
 users = load_users_from_xml('Usuarios.xml')
 filmes = Es_cine('Pelis.xml')
@@ -85,28 +86,28 @@ def modificar_usuario():
     print()
     new_data = {}
 
-    new_nombre = input(Fore.BLUE +'Enter the new name (leave empty to keep current): ')
+    new_nombre = input(Fore.BLUE +'Ingresar nuevo nombre: ')
     if new_nombre:
         new_data['nombre'] = new_nombre
 
-    new_apellido = input('Enter the new last name (leave empty to keep current): ')
+    new_apellido = input('ingresar nuevo apellido: ')
     if new_apellido:
         new_data['apellido'] = new_apellido
 
-    new_telefono = input('Enter the new phone number (leave empty to keep current): ')
+    new_telefono = input('Ingresar nuevo numero: ')
     if new_telefono:
         new_data['telefono'] = new_telefono
 
-    new_correo = input('Enter the new email (leave empty to keep current): ')
+    new_correo = input('ingresar nuevo correo: ')
     if new_correo:
         new_data['correo'] = new_correo
     
     while True:
-        new_contrasena = input('Enter the new password (leave empty to keep current): ')
+        new_contrasena = input(Fore.BLUE+'Ingresar nueva contraseña: ')
         if not new_contrasena:
             break
         elif users.is_password_in_use(new_contrasena):
-            print(Fore.WHITE +'Password already in use, please enter a different one')
+            print(Fore.WHITE +'Esta contraseña ya está en uso, ingrese otra')
         else:
             new_data['contrasena'] = new_contrasena
             break
@@ -117,7 +118,7 @@ def modificar_usuario():
         print(Fore.CYAN+ f"[{user.index}].Nombre: {user.nombre}, Apellido: {user.apellido}, Teléfono: {user.telefono}, Correo: {user.correo}")
         print()
     else:
-        print(Fore.WHITE +'Client not found')
+        print(Fore.WHITE +'Cliente no encontrado')
 
     print(Fore.RED +'Modificar otro usuario: ')
     print('*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-')
@@ -275,6 +276,26 @@ def listadoClientes(users):
         else:
             print(Fore.WHITE +'opcion invalida')
 
+def listadoSalas():
+    xml_file = 'Salas.xml'
+    cine = parse_xml(xml_file)
+    print_cine_data(cine)
+    print(Fore.RED +'¿desea regresar al menu principal?')
+    print('*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-')
+    print('|                Administrador                     *')
+    print('|                   1. Si                          *')
+    print('|                   2. No                          *')
+    print('*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-')
+    while True:
+        option = int(input(Fore.GREEN +'Seleccione una opción: '))
+        if option == 1:
+            gestSalass()
+            break
+        elif option == 2:
+            print(Fore.WHITE +'Esperando a que el usuario termine de ver los clientes registrados')
+        else:
+            print(Fore.WHITE +'opcion invalida')
+
 #menus
 def gestCliente():
     print(Fore.RED +'*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-')
@@ -335,14 +356,40 @@ def gestPelis():
             print(Fore.WHITE +'opcion invalida')
             print()
 
+def gestSalass():
+    print(Fore.RED +'*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-')
+    print('|                Gestion de Salas                  *')
+    print('|              1. Mostrar Salas                    *')
+    print('|              2. Ingresar nueva sala              *')
+    print('|              3. Modificar Sala                   *')
+    print('|              4. Eliminar Sala                    *')
+    print('|              5. Regresar a menu principal        *')
+    print('*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-')
+    
+    while True:
+        Option = int(input(Fore.GREEN +'Seleccione una opción: '))
+        if Option == 1:
+            listadoSalas()
+            break
+        elif Option == 2:
+            print('trabajando en ello')
+        elif Option == 3:
+            print('trabajando en ello')
+        elif Option == 4:
+            print('trabajando en ello')
+        elif Option == 5:
+            menuAdmin()
+        else:
+            print(Fore.WHITE +'opcion invalida')
+            print()
+
 def menuAdmin():
     print(Fore.RED +'*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-')
     print('|                    Gestiones                     *')
     print('|              1. Usuarios                         *')
     print('|              2. Categorias y peliculas           *')
     print('|              3. Salas                            *')
-    print('|              4. Compra de Boletos                *')
-    print('|              5. Regresar a menu principal        *')
+    print('|              4. Regresar a menu principal        *')
     print('*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-')
 
     while True:
@@ -354,12 +401,9 @@ def menuAdmin():
             gestPelis()
             break
         elif option == 3:
-            print('Gestion de Salas')
+            gestSalass()
             break
         elif option == 4:
-            print('Gestion de Boletos')
-            break
-        elif option == 5:
             inicio()
             break
         else:

@@ -88,6 +88,5 @@ def register_new_movie(file_path, nombre, titulo, director, anio, fecha, hora):
 
     xml_string = minidom.parseString(ET.tostring(root)).toprettyxml(indent="  ")
 
-    # Write the formatted XML string back to the file
     with open('Pelis.xml', 'w') as file:
         file.write(xml_string)
