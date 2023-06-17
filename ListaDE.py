@@ -25,8 +25,7 @@ class DoublyCircularLinkedList:
             new_node.next = self.head
             self.head.prev = new_node
 
-# Parse the XML file and populate the doubly circular linked list
-def parse_xml(file_path):
+def Es_cine(file_path):
     tree = ET.parse(file_path)
     root = tree.getroot()
 

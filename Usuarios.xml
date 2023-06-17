@@ -32,4 +32,20 @@
     <correo>asdasdas</correo>
     <contrasena>123</contrasena>
   </usuario>
+  <usuario>
+    <rol>cliente</rol>
+    <nombre>Emilio</nombre>
+    <apellido>ASADS</apellido>
+    <telefono>456789</telefono>
+    <correo>Emil@hotmail.com</correo>
+    <contrasena>789</contrasena>
+  </usuario>
+  <usuario>
+    <rol>cliente</rol>
+    <nombre>asdasdasd</nombre>
+    <apellido>asdasda</apellido>
+    <telefono>88987</telefono>
+    <correo>asdasdasd</correo>
+    <contrasena>147</contrasena>
+  </usuario>
 </usuarios>

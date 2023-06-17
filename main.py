@@ -3,7 +3,7 @@ from ListaSE import*
 from ListaDE import*
 
 users = load_users_from_xml('Usuarios.xml')
-filmes = parse_xml('Pelis.xml')
+filmes = Es_cine('Pelis.xml')
 
 def sesion():
 
@@ -21,7 +21,7 @@ def sesion():
         else:
             print(Fore.WHITE +'Datos incorrectos')
 
-def register_user(users):
+def register_user(users, role):
     print(Fore.WHITE +'ingrese los datos correspondientes del usuario')
     nombre = input(Fore.BLUE +'Nombre: ')
     apellido = input('Apellido: ')
@@ -29,20 +29,19 @@ def register_user(users):
     correo = input('Corrreo electronico: ')
 
     while True:
-        contrasena = input('contraseña: ')
+        contrasena = input(Fore.BLUE +'contraseña: ')
         passused = False
         for user in users:
             if user.contrasena == contrasena:
                 passused = True
-                print('contraseña en uso, ingrese otra')
+                print(Fore.WHITE +'contraseña en uso, ingrese otra')
                 break
         if not passused:
             break
 
     users.register_user(nombre, apellido, telefono, correo, contrasena)
-    print(Fore.GREEN +"Usuario registrado!!")
+    print(Fore.WHITE +"Usuario registrado!!")
 
-    # Update XML file
     xml_string = ET.tostring(users.to_xml(), encoding="unicode")
     dom = xml.dom.minidom.parseString(xml_string)
     formatted_xml = dom.toprettyxml(indent="  ")
@@ -50,21 +49,27 @@ def register_user(users):
     with open("Usuarios.xml", "w") as file:
         file.write(formatted_xml)
 
-    print(Fore.RED +'Ingresar un nuevo usuario: ')
-    print('*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-')
-    print('|                   1. Si                          *')
-    print('|                   2. No                          *')
-    print('*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-')
-    while True:
-        option = int(input(Fore.GREEN +'Ingrese una opcion: '))
-        if option == 1:
-            register_user(users)
-            break
-        elif option == 2:
-            inicio()
-            break
-        else:
-            print('opción invalida')
+    if role == 'Admin':
+        print(Fore.RED +'Ingresar un nuevo usuario: ')
+        print('*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-')
+        print('|                   1. Si                          *')
+        print('|                   2. No                          *')
+        print('*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-')
+        while True:
+            option = int(input(Fore.GREEN +'Ingrese una opcion: '))
+            if option == 1:
+                register_user(users)
+                break
+            elif option == 2:
+                menuAdmin()
+                break
+            else:
+                print(Fore.WHITE +'opción invalida')
+        pass
+    else:
+        print(Fore.WHITE +'Ya puedes iniciar sesión')
+        inicio()
+        pass
 
 def ListadoPelis(filmes, role):
     print(Fore.CYAN +'listado de peliculas')
@@ -84,14 +89,72 @@ def ListadoPelis(filmes, role):
                 menuCliente()
                 break
             elif option == 2:
-                print('Esperando a que el usuario termine de ver las peliculas')
+                print(Fore.WHITE +'Esperando a que el usuario termine de ver las peliculas')
             else:
-                print('opcion invalida')
+                print(Fore.WHITE +'opcion invalida')
         pass
     else:
-        print('no role for you :c')
+        print(Fore.WHITE +'Aun no has iniciado sesión')
         inicio()
         pass
+
+def gestCliente():
+    print(Fore.RED +'*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-')
+    print('|                  Gestion de clientes             *')
+    print('|              1. Mostrar clientes                 *')
+    print('|              2. Registrar nuevo cliente          *')
+    print('|              3. Modificar cliente                *')
+    print('|              4. Eliminar cliente                 *')
+    print('|              5. Regresar a menu principal        *')
+    print('*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-')
+    
+    while True:
+        Option = int(input(Fore.GREEN +'Seleccione una opción: '))
+        if Option == 1:
+            print('Mostrar cliente')
+            break
+        elif Option == 2:
+            register_user(users, 'Admin')
+            break
+        elif Option == 3:
+            print('modificar cliente')
+            break
+        elif Option == 4:
+            print('Eliminar cliente')
+        elif Option == 5:
+            menuAdmin()
+        else:
+            print(Fore.WHITE +'opcion invalida')
+            print()
+
+def gestPelis():
+    print(Fore.RED +'*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-')
+    print('|                Gestion de Peliculas              *')
+    print('|              1. Mostrar Pelicula                 *')
+    print('|              2. Registrar nueva Pelicula         *')
+    print('|              3. Modificar Pelicula               *')
+    print('|              4. Eliminar Pelicula                *')
+    print('|              5. Regresar a menu principal        *')
+    print('*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-')
+    
+    while True:
+        Option = int(input(Fore.GREEN +'Seleccione una opción: '))
+        if Option == 1:
+            print('Mostrar Pelicula')
+            break
+        elif Option == 2:
+            print('Ingresar pelicula')
+            break
+        elif Option == 3:
+            print('modificar pelicula')
+            break
+        elif Option == 4:
+            print('Eliminar pelicula')
+        elif Option == 5:
+            menuAdmin()
+        else:
+            print(Fore.WHITE +'opcion invalida')
+            print()
 
 def menuAdmin():
     print(Fore.RED +'*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-')
@@ -106,10 +169,10 @@ def menuAdmin():
     while True:
         option = int(input(Fore.GREEN +'Seleccione una opción: '))
         if option == 1:
-            print('Gestion de usuarios')
+            gestCliente()
             break
         elif option == 2:
-            print('Gestion de pelis')
+            gestPelis()
             break
         elif option == 3:
             print('Gestion de Salas')
@@ -121,7 +184,7 @@ def menuAdmin():
             inicio()
             break
         else:
-            print('opcion invalida')
+            print(Fore.WHITE +'opcion invalida')
             print()
 
 def menuCliente():
@@ -148,7 +211,7 @@ def menuCliente():
         elif option == 5:
             inicio()
         else:
-            print('ingrese una opción valida')
+            print(Fore.WHITE +'ingrese una opción valida')
             print()
 
 def inicio():
@@ -165,7 +228,7 @@ def inicio():
             sesion()
             break
         elif option == 2:
-            register_user(users)
+            register_user(users, 'Nuevo usuario')
             break
         elif option == 3:
             ListadoPelis(filmes, 'invitado')
@@ -173,6 +236,6 @@ def inicio():
         elif option == 4:
             exit()
         else:
-            print('Opcion invalida')
+            print(Fore.WHITE +'Opcion invalida')
             print()
 inicio()
