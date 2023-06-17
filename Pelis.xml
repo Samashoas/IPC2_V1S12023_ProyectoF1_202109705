@@ -1,54 +1,282 @@
+<?xml version='1.0' encoding='utf-8'?>
 <categorias>
- <categoria>
- <nombre>Acción</nombre>
- <peliculas>
- <pelicula>
- <titulo>Avengers: Endgame</titulo>
- <director>Joe Russo, Anthony Russo</director>
- <anio>2019</anio>
- <fecha>2023-06-05</fecha>
- <hora>18:30</hora>
- </pelicula>
- <pelicula>
- <titulo>John Wick</titulo>
- <director>Chad Stahelski</director>
- <anio>2014</anio>
- <fecha>2023-06-06</fecha>
- <hora>20:00</hora>
- </pelicula>
- <pelicula>
- <titulo>Misión Imposible: Fallout</titulo>
- <director>Christopher McQuarrie</director>
- <anio>2018</anio>
- <fecha>2023-06-07</fecha>
- <hora>19:15</hora>
- </pelicula>
- </peliculas>
- </categoria>
- <categoria>
- <nombre>Comedia</nombre>
- <peliculas>
- <pelicula>
- <titulo>Deadpool</titulo>
- <director>Tim Miller</director>
- <anio>2016</anio>
- <fecha>2023-06-05</fecha>
- <hora>20:30</hora>
- </pelicula>
- <pelicula>
- <titulo>Superbad</titulo>
- <director>Greg Mottola</director>
- <anio>2007</anio>
- <fecha>2023-06-06</fecha>
- <hora>21:00</hora>
- </pelicula>
- <pelicula>
- <titulo>Bridesmaids</titulo>
- <director>Paul Feig</director>
- <anio>2011</anio>
- <fecha>2023-06-07</fecha>
- <hora>20:15</hora>
- </pelicula>
- </peliculas>
- </categoria>
-</categorias>
+  
+  
+  <categoria>
+    
+    
+    <nombre>Accion</nombre>
+    
+    
+    <peliculas>
+      
+      
+      <pelicula>
+        
+        
+        <titulo>Avengers: Endgame</titulo>
+        
+        
+        <director>Joe Russo, Anthony Russo</director>
+        
+        
+        <anio>2019</anio>
+        
+        
+        <fecha>2023-06-05</fecha>
+        
+        
+        <hora>18:30</hora>
+        
+      
+      </pelicula>
+      
+      
+      <pelicula>
+        
+        
+        <titulo>John Wick</titulo>
+        
+        
+        <director>Chad Stahelski</director>
+        
+        
+        <anio>2014</anio>
+        
+        
+        <fecha>2023-06-06</fecha>
+        
+        
+        <hora>20:00</hora>
+        
+      
+      </pelicula>
+      
+      
+      <pelicula>
+        
+        
+        <titulo>Mision Imposible: Fallout</titulo>
+        
+        
+        <director>Christopher McQuarrie</director>
+        
+        
+        <anio>2018</anio>
+        
+        
+        <fecha>2023-06-07</fecha>
+        
+        
+        <hora>19:15</hora>
+        
+      
+      </pelicula>
+      
+      
+      <pelicula>
+        
+        
+        <titulo>Joe danger</titulo>
+        
+        
+        <director>joe</director>
+        
+        
+        <anio>2000</anio>
+        
+        
+        <fecha>2002-12-23</fecha>
+        
+        
+        <hora>20:00</hora>
+        
+      
+      </pelicula>
+      
+    
+    </peliculas>
+    
+  
+  </categoria>
+  
+  
+  <categoria>
+    
+    
+    <nombre>Comedia</nombre>
+    
+    
+    <peliculas>
+      
+      
+      <pelicula>
+        
+        
+        <titulo>Deadpool</titulo>
+        
+        
+        <director>Tim Miller</director>
+        
+        
+        <anio>2016</anio>
+        
+        
+        <fecha>2023-06-05</fecha>
+        
+        
+        <hora>20:30</hora>
+        
+      
+      </pelicula>
+      
+      
+      <pelicula>
+        
+        
+        <titulo>Superbad</titulo>
+        
+        
+        <director>Greg Mottola</director>
+        
+        
+        <anio>2007</anio>
+        
+        
+        <fecha>2023-06-06</fecha>
+        
+        
+        <hora>21:00</hora>
+        
+      
+      </pelicula>
+      
+      
+      <pelicula>
+        
+        
+        <titulo>Bridesmaids</titulo>
+        
+        
+        <director>Paul Feig</director>
+        
+        
+        <anio>2011</anio>
+        
+        
+        <fecha>2023-06-07</fecha>
+        
+        
+        <hora>20:15</hora>
+        
+      
+      </pelicula>
+      
+      
+      <pelicula>
+        
+        
+        <titulo>jijija</titulo>
+        
+        
+        <director>yo</director>
+        
+        
+        <anio>4563</anio>
+        
+        
+        <fecha>4566-12-24</fecha>
+        
+        
+        <hora>20:00</hora>
+        
+      
+      </pelicula>
+      
+    
+    </peliculas>
+    
+  
+  </categoria>
+  
+  
+  <categoria>
+    
+    
+    <nombre>Accion</nombre>
+    
+    
+    <peliculas>
+      
+      
+      <pelicula>
+        
+        
+        <titulo>Threat level midnight</titulo>
+        
+        
+        <director>michael scott</director>
+        
+        
+        <anio>2009</anio>
+        
+        
+        <fecha>2009-09-10</fecha>
+        
+        
+        <hora>19:00</hora>
+        
+      
+      </pelicula>
+      
+    
+    </peliculas>
+    
+  
+  </categoria>
+  
+  
+  <categoria>
+    
+    
+    <nombre>Drama</nombre>
+    
+    
+    <peliculas>
+      
+      
+      <pelicula>
+        
+        
+        <titulo>pipipipi</titulo>
+        
+        
+        <director>el chavo</director>
+        
+        
+        <anio>1999</anio>
+        
+        
+        <fecha>1999-12-08</fecha>
+        
+        
+        <hora>16:00</hora>
+        
+      
+      </pelicula>
+      
+    
+      <pelicula>
+        <titulo>el perro</titulo>
+        <director>asdasd</director>
+        <anio>4556</anio>
+        <fecha>4444-11-22</fecha>
+        <hora>12:00</hora>
+      </pelicula>
+    </peliculas>
+    
+  
+  </categoria>
+  
+
+<categoria><nombre>asdasd</nombre><peliculas><pelicula><titulo>asdasd</titulo><director>asdasdasd</director><anio>4555</anio><fecha>2222-11-33</fecha><hora>15:00</hora></pelicula></peliculas></categoria></categorias>

@@ -181,7 +181,32 @@ def elminar_usuario():
             break
 
 def register_peli():
-    print('trabajando en ello')
+    file_path = 'Pelis.xml'
+    nombre = input("Ingrese el nombre de la categoria: ")
+    titulo = input("Ingrese el titulo de la pelicula: ")
+    director = input("Ingrese el director de la pelicula: ")
+    anio = input("ingrese el año de estreno: ")
+    fecha = input("Ingrese la fecha de emisison (YYYY-MM-DD): ")
+    hora = input("ingrese la hora de funcion: ")
+
+    register_new_movie(file_path, nombre, titulo, director, anio, fecha, hora)
+
+    print(Fore.RED +'Ingresar una nueva pelicula: ')
+    print('*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-')
+    print('|                   1. Si                          *')
+    print('|                   2. No                          *')
+    print('*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-')
+    while True:
+        option = int(input(Fore.GREEN +'Ingrese una opcion: '))
+        if option == 1:
+            register_peli()
+            break
+        elif option == 2:
+            gestPelis()
+            break
+        else:
+            print(Fore.WHITE +'opción invalida')
+
 #Mostrar xml
 def ListadoPelis(filmes, role):
     print(Fore.WHITE +'listado de peliculas')
@@ -297,7 +322,7 @@ def gestPelis():
             ListadoPelis(filmes, 'Admin')
             break
         elif Option == 2:
-            print('Ingresar pelicula')
+            register_peli()
             break
         elif Option == 3:
             print('modificar pelicula')
@@ -392,4 +417,4 @@ def inicio():
         else:
             print(Fore.WHITE +'Opcion invalida')
             print()
-gestPelis()
+inicio()
