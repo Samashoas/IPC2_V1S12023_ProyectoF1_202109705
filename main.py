@@ -61,7 +61,7 @@ def register_user(users, role):
                 register_user(users)
                 break
             elif option == 2:
-                menuAdmin()
+                gestCliente()
                 break
             else:
                 print(Fore.WHITE +'opción invalida')
@@ -72,9 +72,9 @@ def register_user(users, role):
         pass
 
 def ListadoPelis(filmes, role):
-    print(Fore.CYAN +'listado de peliculas')
+    print(Fore.WHITE +'listado de peliculas')
     for row in filmes:
-        print(row)
+        print(Fore.CYAN + row)
     
     if role == 'Cliente':
         print(Fore.RED +'¿desea regresar al menu principal?')
@@ -98,6 +98,29 @@ def ListadoPelis(filmes, role):
         inicio()
         pass
 
+def listadoClientes(users):
+    print(Fore.WHITE +'usuarios registrados')
+    for user in users:
+        if user.rol == 'cliente':
+            print(Fore.CYAN+ f"[{user.index}].Nombre: {user.nombre}, Apellido: {user.apellido}, Teléfono: {user.telefono}, Correo: {user.correo}")
+            print(Fore.WHITE +"---------------------")
+    
+    print(Fore.RED +'¿desea regresar al menu principal?')
+    print('*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-')
+    print('|                Administrador                     *')
+    print('|                   1. Si                          *')
+    print('|                   2. No                          *')
+    print('*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-')
+    while True:
+        option = int(input(Fore.GREEN +'Seleccione una opción: '))
+        if option == 1:
+            menuAdmin()
+            break
+        elif option == 2:
+            print(Fore.WHITE +'Esperando a que el usuario termine de ver los clientes registrados')
+        else:
+            print(Fore.WHITE +'opcion invalida')
+
 def gestCliente():
     print(Fore.RED +'*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-')
     print('|                  Gestion de clientes             *')
@@ -111,7 +134,7 @@ def gestCliente():
     while True:
         Option = int(input(Fore.GREEN +'Seleccione una opción: '))
         if Option == 1:
-            print('Mostrar cliente')
+            listadoClientes(users)
             break
         elif Option == 2:
             register_user(users, 'Admin')

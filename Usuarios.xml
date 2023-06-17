@@ -48,4 +48,44 @@
     <correo>asdasdasd</correo>
     <contrasena>147</contrasena>
   </usuario>
+  <usuario>
+    <rol>cliente</rol>
+    <nombre>asdasdasd</nombre>
+    <apellido>asdasd</apellido>
+    <telefono>46454654</telefono>
+    <correo>asdasda</correo>
+    <contrasena>852</contrasena>
+  </usuario>
+  <usuario>
+    <rol>cliente</rol>
+    <nombre>asdasd</nombre>
+    <apellido>asdasdas</apellido>
+    <telefono>9879879</telefono>
+    <correo>asdasd</correo>
+    <contrasena>963</contrasena>
+  </usuario>
+  <usuario>
+    <rol>cliente</rol>
+    <nombre>asdasdasda</nombre>
+    <apellido>asdasdasdas</apellido>
+    <telefono>654654</telefono>
+    <correo>asdasdas</correo>
+    <contrasena>951</contrasena>
+  </usuario>
+  <usuario>
+    <rol>cliente</rol>
+    <nombre>asdasdasdasd</nombre>
+    <apellido>asdasadadasd</apellido>
+    <telefono>849849</telefono>
+    <correo>asdasdasd</correo>
+    <contrasena>753</contrasena>
+  </usuario>
+  <usuario>
+    <rol>cliente</rol>
+    <nombre>asdasdasdas</nombre>
+    <apellido>asasdasdasd</apellido>
+    <telefono>6546546546546</telefono>
+    <correo>sdasdasdasd</correo>
+    <contrasena>759</contrasena>
+  </usuario>
 </usuarios>

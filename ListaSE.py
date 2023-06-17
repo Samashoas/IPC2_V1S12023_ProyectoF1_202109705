@@ -2,7 +2,8 @@ import xml.etree.ElementTree as ET
 import xml.dom.minidom
 
 class User:
-    def __init__(self, rol, nombre, apellido, telefono, correo, contrasena):
+    def __init__(self, index, rol, nombre, apellido, telefono, correo, contrasena):
+        self.index = index
         self.rol = rol
         self.nombre = nombre
         self.apellido = apellido
@@ -61,7 +62,7 @@ class LinkedList:
         return root
     
     def register_user(self, nombre, apellido, telefono, correo, contrasena):
-        new_user = User('cliente', nombre, apellido, telefono, correo, contrasena)
+        new_user = User(self.get_next_index(),'cliente', nombre, apellido, telefono, correo, contrasena)
         if not self.head:
             self.head = new_user
         else:
@@ -69,6 +70,14 @@ class LinkedList:
             while current.next:
                 current = current.next
             current.next = new_user
+    
+    def get_next_index(self):
+        current = self.head
+        index = 1
+        while current:
+            current = current.next
+            index += 1
+        return index
 
 def load_users_from_xml(file_path):
     tree = ET.parse(file_path)
@@ -76,7 +85,7 @@ def load_users_from_xml(file_path):
 
     user_list = LinkedList()
 
-    for usuario in root.findall('usuario'):
+    for index, usuario in enumerate(root.findall('usuario')):
         rol = usuario.find('rol').text
         nombre = usuario.find('nombre').text
         apellido = usuario.find('apellido').text
@@ -84,7 +93,7 @@ def load_users_from_xml(file_path):
         correo = usuario.find('correo').text
         contrasena = usuario.find('contrasena').text
 
-        user = User(rol, nombre, apellido, telefono, correo, contrasena)
+        user = User(index +1, rol, nombre, apellido, telefono, correo, contrasena)
         user_list.append(user)
 
     return user_list
