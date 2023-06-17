@@ -4,7 +4,7 @@ from ListaDE import*
 
 users = load_users_from_xml('Usuarios.xml')
 filmes = Es_cine('Pelis.xml')
-
+#inicio de sesion
 def sesion():
 
     while True:
@@ -21,6 +21,7 @@ def sesion():
         else:
             print(Fore.WHITE +'Datos incorrectos')
 
+#funciones de cliente
 def register_user(users, role):
     print(Fore.WHITE +'ingrese los datos correspondientes del usuario')
     nombre = input(Fore.BLUE +'Nombre: ')
@@ -71,6 +72,115 @@ def register_user(users, role):
         inicio()
         pass
 
+def modificar_usuario():
+    print(Fore.WHITE +'usuarios registrados')
+    for user in users:
+        if user.rol == 'cliente':
+            print(Fore.CYAN+ f"[{user.index}].Nombre: {user.nombre}, Apellido: {user.apellido}, Teléfono: {user.telefono}, Correo: {user.correo}")
+            print(Fore.WHITE +"---------------------")
+
+    index = int(input(Fore.GREEN +'Ingresa el index del usuario a modificar: '))
+    user = users.find_user_by_index(index)
+    print(Fore.CYAN+ f"[{user.index}].Nombre: {user.nombre}, Apellido: {user.apellido}, Teléfono: {user.telefono}, Correo: {user.correo}")
+    print()
+    new_data = {}
+
+    new_nombre = input(Fore.BLUE +'Enter the new name (leave empty to keep current): ')
+    if new_nombre:
+        new_data['nombre'] = new_nombre
+
+    new_apellido = input('Enter the new last name (leave empty to keep current): ')
+    if new_apellido:
+        new_data['apellido'] = new_apellido
+
+    new_telefono = input('Enter the new phone number (leave empty to keep current): ')
+    if new_telefono:
+        new_data['telefono'] = new_telefono
+
+    new_correo = input('Enter the new email (leave empty to keep current): ')
+    if new_correo:
+        new_data['correo'] = new_correo
+    
+    while True:
+        new_contrasena = input('Enter the new password (leave empty to keep current): ')
+        if not new_contrasena:
+            break
+        elif users.is_password_in_use(new_contrasena):
+            print(Fore.WHITE +'Password already in use, please enter a different one')
+        else:
+            new_data['contrasena'] = new_contrasena
+            break
+
+    if users.update_user_by_index(index, new_data):
+        print(Fore.WHITE +'Cliente modificado exitosamente')
+        user = users.find_user_by_index(index)
+        print(Fore.CYAN+ f"[{user.index}].Nombre: {user.nombre}, Apellido: {user.apellido}, Teléfono: {user.telefono}, Correo: {user.correo}")
+        print()
+    else:
+        print(Fore.WHITE +'Client not found')
+
+    print(Fore.RED +'Modificar otro usuario: ')
+    print('*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-')
+    print('|                   1. Si                          *')
+    print('|                   2. No                          *')
+    print('*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-')
+    while True:
+        option = int(input(Fore.GREEN +'Ingrese una opcion: '))
+        if option == 1:
+            modificar_usuario()
+            break
+        elif option == 2:
+            gestCliente()
+            break
+        else:
+            print(Fore.WHITE +'opción invalida')
+
+def elminar_usuario():
+    print(Fore.WHITE +'usuarios registrados')
+    for user in users:
+        if user.rol == 'cliente':
+            print(Fore.CYAN+ f"[{user.index}].Nombre: {user.nombre}, Apellido: {user.apellido}, Teléfono: {user.telefono}, Correo: {user.correo}")
+            print(Fore.WHITE +"---------------------")
+    index = int(input('Ingresa el index del cliente a eliminar: '))
+
+    print('está seguro de eliminar este cliente')
+    print('*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-')
+    print('|                   1. Si                          *')
+    print('|                   2. No                          *')
+    print('*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-')
+    while True: 
+        option = int(input(Fore.GREEN +'ingrese su opción: '))
+        if option == 1:
+            if users.delete_user_by_index(index):
+                print('El cliente fue eliminado exitosamente')
+                print(Fore.WHITE +'usuarios registrados')
+                for user in users:
+                    if user.rol == 'cliente':
+                        print(Fore.CYAN+ f"[{user.index}].Nombre: {user.nombre}, Apellido: {user.apellido}, Teléfono: {user.telefono}, Correo: {user.correo}")
+                        print(Fore.WHITE +"---------------------")
+            print(Fore.RED +'Eliminar otro usuario: ')
+            print('*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-')
+            print('|                   1. Si                          *')
+            print('|                   2. No                          *')
+            print('*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-')
+            while True:
+                option = int(input(Fore.GREEN +'Ingrese una opcion: '))
+                if option == 1:
+                    elminar_usuario()
+                    break
+                elif option == 2:
+                    gestCliente()
+                    break
+                else:
+                    print(Fore.WHITE +'opción invalida')
+            else:
+                print('Client not found')
+            break
+        elif option == 2:
+            gestCliente()
+            break
+
+#Mostrar xml
 def ListadoPelis(filmes, role):
     print(Fore.WHITE +'listado de peliculas')
     for row in filmes:
@@ -114,13 +224,14 @@ def listadoClientes(users):
     while True:
         option = int(input(Fore.GREEN +'Seleccione una opción: '))
         if option == 1:
-            menuAdmin()
+            gestCliente()
             break
         elif option == 2:
             print(Fore.WHITE +'Esperando a que el usuario termine de ver los clientes registrados')
         else:
             print(Fore.WHITE +'opcion invalida')
 
+#menus
 def gestCliente():
     print(Fore.RED +'*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-')
     print('|                  Gestion de clientes             *')
@@ -140,10 +251,11 @@ def gestCliente():
             register_user(users, 'Admin')
             break
         elif Option == 3:
-            print('modificar cliente')
+            modificar_usuario()
             break
         elif Option == 4:
-            print('Eliminar cliente')
+            elminar_usuario()
+            break
         elif Option == 5:
             menuAdmin()
         else:
@@ -261,4 +373,4 @@ def inicio():
         else:
             print(Fore.WHITE +'Opcion invalida')
             print()
-inicio()
+elminar_usuario()
