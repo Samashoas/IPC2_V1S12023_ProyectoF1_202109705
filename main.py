@@ -180,6 +180,7 @@ def elminar_usuario():
             gestCliente()
             break
 
+
 #Mostrar xml
 def ListadoPelis(filmes, role):
     print(Fore.WHITE +'listado de peliculas')
@@ -373,4 +374,4 @@ def inicio():
         else:
             print(Fore.WHITE +'Opcion invalida')
             print()
-elminar_usuario()
+inicio()
