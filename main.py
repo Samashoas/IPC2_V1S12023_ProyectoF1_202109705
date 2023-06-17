@@ -278,6 +278,7 @@ def listadoClientes(users):
 
 def listadoSalas():
     xml_file = 'Salas.xml'
+    print(Fore.CYAN+'SALAS')
     cine = parse_xml(xml_file)
     print_cine_data(cine)
     print(Fore.RED +'¿desea regresar al menu principal?')
