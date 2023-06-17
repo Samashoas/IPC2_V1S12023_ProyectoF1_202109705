@@ -180,7 +180,8 @@ def elminar_usuario():
             gestCliente()
             break
 
-
+def register_peli():
+    print('trabajando en ello')
 #Mostrar xml
 def ListadoPelis(filmes, role):
     print(Fore.WHITE +'listado de peliculas')
@@ -198,6 +199,23 @@ def ListadoPelis(filmes, role):
             option = int(input(Fore.GREEN +'seleccione una opción: '))
             if option == 1:
                 menuCliente()
+                break
+            elif option == 2:
+                print(Fore.WHITE +'Esperando a que el usuario termine de ver las peliculas')
+            else:
+                print(Fore.WHITE +'opcion invalida')
+        pass
+    elif role == 'Admin':
+        print(Fore.RED +'¿desea regresar al menu principal?')
+        print('*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-')
+        print('|                   Admin                          *')
+        print('|                   1. Si                          *')
+        print('|                   2. No                          *')
+        print('*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-')
+        while True:
+            option = int(input(Fore.GREEN +'seleccione una opción: '))
+            if option == 1:
+                gestPelis()
                 break
             elif option == 2:
                 print(Fore.WHITE +'Esperando a que el usuario termine de ver las peliculas')
@@ -276,7 +294,7 @@ def gestPelis():
     while True:
         Option = int(input(Fore.GREEN +'Seleccione una opción: '))
         if Option == 1:
-            print('Mostrar Pelicula')
+            ListadoPelis(filmes, 'Admin')
             break
         elif Option == 2:
             print('Ingresar pelicula')
@@ -374,4 +392,4 @@ def inicio():
         else:
             print(Fore.WHITE +'Opcion invalida')
             print()
-inicio()
+gestPelis()
